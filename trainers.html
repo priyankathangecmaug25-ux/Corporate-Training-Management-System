@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainers - Corporate Training Management</title>
+  <link rel="icon" href="logo11.png">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    html,body{
+      height:100%;
+    }
+    body {
+      font-family: "Rubik", sans-serif;
+      background-image: linear-gradient(rgba(15, 12, 12, 0.3), rgba(0, 0, 0, 0.4)), url("training1.jpg");
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      color: white;
+      position:relative;
+    }
+
+    header {
+      background-color: rgba(16, 14, 39, 0.6);
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    header a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    header a:hover {
+      color: #8ec5ff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #9bc8ff;
+    }
+
+    table {
+      width: 80%;
+      margin: 40px auto;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    th {
+      background: rgba(0, 98, 255, 0.5);
+      font-size: 18px;
+    }
+
+    tr:hover {
+      background: rgba(0, 98, 255, 0.3);
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.6);
+      text-align: center;
+      padding: 20px;
+      font-size: 15px;
+      width:100%;
+      position:absolute;
+      bottom:0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="training_mgmt.html">Home</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="trainings.html">Trainings</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="ContactUs.html">Contact Us</a>
+  </header>
+
+  <h1>Our Trainers</h1>
+
+  <table id="trainerTable">
+    <thead>
+      <tr>
+        <th>Trainer ID</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Expertise</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- JS will populate -->
+    </tbody>
+  </table>
+
+  <footer>
+    <div>&copy; 2025 Corporate Training Management System | All Rights Reserved</div>
+  </footer>
+
+  <script>
+   
+    const trainers=JSON.parse(localStorage.getItem("trainers"));
+
+    const tbody = document.querySelector("#trainerTable tbody");
+
+    trainers.forEach(t => {
+      const row = `<tr>
+        <td>${t.id}</td>
+        <td>${t.name}</td>
+        <td>${t.gender}</td>
+        <td>${t.expertise}</td>
+        <td>${t.email}</td>
+      </tr>`;
+      
+      tbody.innerHTML=tbody.innerHTML+row;
+    });
+  </script>
+
+</body>
+</html>

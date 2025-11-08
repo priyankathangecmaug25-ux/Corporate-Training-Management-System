@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="logo11.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training_mgmt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            font-family: "Rubik", sans-serif;
+            font-style: normal;
+        }
+
+        main,
+        .header-block div a {
+            color: white;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 70px;
+            margin: 8px;
+        }
+
+        .abutton:hover,
+        header {
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        header {
+            background-color: rgba(16, 14, 39, 0.6);
+        }
+
+        .logo-container {
+            display: inline-block;
+            width: 10%;
+        }
+
+        .header-block {
+            font-size: large;
+            display: inline-block;
+            width: 10%;
+            height: 80px;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        .dropdown-content {
+            display: none;
+            background-color: rgb(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            display: inline-block;
+            padding: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-space {
+            width: 35%;
+        }
+
+        .header-block div {
+            margin: 22% 0px;
+        }
+
+        main {
+            height: 450px;
+        }
+
+        .main-text-container {
+            margin: 150px 100px;
+        }
+
+        .main-big-text {
+            font-size: 55px;
+        }
+
+        .main-small-text {
+            margin-top: 10PX;
+            font-size: 25px;
+        }
+
+        .abutton {
+            display: inline-block;
+            color: rgb(11, 62, 130);
+            text-decoration: none;
+            margin-top: 30px;
+            padding: 10px 25px;
+            letter-spacing: 0.8px;
+            border-radius: 5px;
+            background-color: aliceblue;
+        }
+
+        .header-block div a:hover {
+            color: rgb(125, 129, 131);
+        }
+
+        .abutton:hover {
+            background-color: rgb(228, 234, 236);
+        }
+
+        .prefooter {
+            font-size: 28px;
+            font-weight: lighter;
+            text-align: center;
+            margin: 7% auto;
+        }
+
+        main,
+        .background {
+            filter: brightness(60%) blur(10px);
+        }
+
+        .background {
+            background-image: url("training1.jpg");
+            height: 750px;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .form {
+            color: white;
+            padding: 20px;
+            z-index: 1;
+            position: absolute;
+            top: 20%;
+            text-align: center;
+            right: 34%;
+            margin: 0px auto;
+            height: 420px;
+            width: 450px;
+            display: inline-block;
+            background-color: rgb(0, 0, 0, 0.5);
+            border-radius: 15px;
+        }
+
+        .form pre {
+            font-size: 35px;
+        }
+
+        .form_entities {
+            width: 380px;
+            height: 30px;
+            border-radius: 10px;
+            margin: 15px 0px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 1px solid white;
+            padding: 5px;
+        }
+
+        .rad {
+            margin: 5px 10px 0px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+    <header>
+        <div class="logo-container">
+            <img class="logo" src="logo2.png">
+        </div>
+        <div class="header-space header-block"></div>
+        <div class="header-block">
+            <div><a href="training_mgmt.html">Home</a></div>
+        </div>
+        <div class="header-block">
+            <div class="dropdown"><a href="signup.html">SignUp</a>
+                <div class="dropdown-content">
+                    <a href="emp_signup.html">Employee</a><br>
+                    <a href="tr_signup.html">Trainer</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-block">
+            <div><a href="trainings.html">Trainings</a></div>
+        </div>
+        <div class="header-block">
+            <div><a href="aboutus.html">About Us</a></div>
+        </div>
+        <div class="header-block">
+            <div><a href="contactus.html">Contact Us</a></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-text-container">
+            <div class="main-big-text">Code,Create, <br>Innovate.</div>
+            <div class="main-small-text">Train for the future from the best.</div>
+            <a class="abutton" href="ContactUs.html">CONTACT US</a>
+        </div>
+    </main>
+
+    <form class="form" onsubmit="return validateForm(event)">
+        <pre>Employee  Signup</pre><br>
+
+        <input id="name" class="form_entities" type="text" placeholder="Enter Name"><br>
+        <input id="email" type="email" class="form_entities" placeholder="Enter Email"><br>
+        <input id="password" type="password" class="form_entities" placeholder="Enter Password"><br>
+
+        <label class="rad" for="male">Male</label>
+        <input type="radio" id="male" name="Gender">
+        <label class="rad" for="female">Female</label>
+        <input type="radio" id="female" name="Gender"><br>
+
+        <button type="submit" class="abutton">Sign Up</button>
+
+        <p>Already have an account?
+            <a href="login.html" style="color:#8ec5ff; text-decoration:none; font-weight:bold;">Login here</a>
+        </p>
+    </form>
+
+    <div class="prefooter">
+        "India's No. 1 Corporate Training Platforms at your service."
+    </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let genderMale = document.getElementById("male").checked;
+            let genderFemale = document.getElementById("female").checked;
+
+            if (name === "") {
+                alert("Please enter your name.");
+                return false;
+            }
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.match(emailPattern)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            if (!genderMale && !genderFemale) {
+                alert("Please select your gender.");
+                return false;
+            }
+
+            alert("Signup successful! Redirecting to login page...");
+            window.location.href = "login.html";
+            return true;
+        }
+    </script>
+</body>
+</html>

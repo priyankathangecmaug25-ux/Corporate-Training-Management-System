@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback - Corporate Training Management</title>
+  <link rel="icon" href="logo11.png">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Global Styles ---------- */
+    body {
+      font-family: "Rubik", sans-serif;
+      background-image: linear-gradient(rgba(15, 12, 12, 0.3), rgba(0, 0, 0, 0.5)), url("training1.jpg");
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      color: white;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      background-color: rgba(16, 14, 39, 0.6);
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    header a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    header a:hover {
+      color: #8ec5ff;
+    }
+
+    /* ---------- Title ---------- */
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 42px;
+      color: #a5d8ff;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ---------- Feedback Form Container ---------- */
+    .feedback-container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      margin-bottom: 15px;
+      font-family: "Rubik", sans-serif;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #001d3d;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    /* ---------- Buttons ---------- */
+    button {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 10px 18px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* ---------- Feedback List ---------- */
+    .feedback-list {
+      margin-top: 40px;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .feedback-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border-left: 5px solid #007bff;
+    }
+
+    .feedback-item strong {
+      color: #a5d8ff;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: rgba(0, 0, 0, 0.6);
+      text-align: center;
+      padding: 20px;
+      font-size: 15px;
+      margin-top: 70px;
+    }
+
+    @media (max-width: 768px) {
+      .feedback-container {
+        width: 90%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <a href="training_mgmt.html">Home</a>
+    <a href="trainings.html">Trainings</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="ContactUs.html">Contact Us</a>
+    <a href="feedback.html">Feedback</a>
+  </header>
+
+  <!-- Title -->
+  <h1>Feedback Form</h1>
+
+  <!-- Feedback Form Section -->
+  <div class="feedback-container">
+    <form id="feedbackForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="rating">Rating</label>
+      <select id="rating" required>
+        <option value="">Select</option>
+        <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+        <option value="4">⭐⭐⭐⭐ Good</option>
+        <option value="3">⭐⭐⭐ Average</option>
+        <option value="2">⭐⭐ Poor</option>
+        <option value="1">⭐ Very Poor</option>
+      </select>
+
+      <label for="comments">Comments</label>
+      <textarea id="comments" rows="4" placeholder="Your feedback..." required></textarea>
+
+      <button type="submit">Submit Feedback</button>
+      <button type="button" id="clearBtn">Clear All</button>
+    </form>
+
+    <!-- Feedback Display Section -->
+    <div class="feedback-list" id="feedbackList">
+      <h2>All Feedback</h2>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Corporate Training Management | All Rights Reserved
+  </footer>
+
+  <script>
+    const form = document.getElementById("feedbackForm");
+    const feedbackList = document.getElementById("feedbackList");
+    const clearBtn = document.getElementById("clearBtn");
+
+    // Load stored feedbacks
+    document.addEventListener("DOMContentLoaded", showFeedback);
+
+    // Submit Feedback
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const feedback = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        rating: document.getElementById("rating").value,
+        comments: document.getElementById("comments").value
+      };
+
+      // Save to local storage
+      let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) ;
+      console.log(feedbacks);
+      feedbacks.push(feedback);
+      localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+
+      showFeedback();
+      form.reset();
+      alert("✅ Thank you! Your feedback has been submitted.");
+    });
+
+    // Display feedback from local storage
+    function showFeedback() {
+      if(localStorage.feedbacks){
+      const feedbacks = JSON.parse(localStorage.getItem("feedbacks"));
+      feedbackList.innerHTML = "<h2>All Feedback</h2>";
+
+      feedbacks.forEach((fb) => {
+        const div = document.createElement("div");
+        div.classList.add("feedback-item");
+        div.innerHTML = `
+          <p><strong>${fb.name}</strong> (${fb.email})</p>
+          <p>⭐ Rating: ${fb.rating}</p>
+          <p>${fb.comments}</p>
+        `;
+        feedbackList.appendChild(div);
+      });
+    }
+  }
+
+    // Clear All Feedback
+    clearBtn.addEventListener("click", function () {
+      if (confirm("Are you sure you want to delete all feedback?")) {
+        localStorage.removeItem("feedbacks");
+        showFeedback();
+      }
+    });
+  </script>
+</body>
+</html>
