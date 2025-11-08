@@ -10,5 +10,7 @@ Employee	Views and enrolls in trainings, gives feedback after sessions.
 
 💻 Technologies Used
 Frontend:	HTML5, CSS3, JavaScript
+
 Storage: Local Storage
+
 Tools	Git, VS Code
